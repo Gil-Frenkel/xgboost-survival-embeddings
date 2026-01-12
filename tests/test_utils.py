@@ -1,4 +1,4 @@
-from sklearn.utils._testing import assert_raises
+import pytest
 
 from tests.data import get_data
 from xgbse.converters import convert_data_to_xgb_format
@@ -21,11 +21,10 @@ from xgbse.converters import convert_data_to_xgb_format
 
 
 def test_convert_value_error():
-    assert_raises(
-        ValueError,
-        convert_data_to_xgb_format,
-        X_train,
-        y_train,
-        "blablabla",
-        enable_categorical=False,
-    )
+    with pytest.raises(ValueError):
+        convert_data_to_xgb_format(
+            X_train,
+            y_train,
+            "blablabla",
+            enable_categorical=False,
+        )
