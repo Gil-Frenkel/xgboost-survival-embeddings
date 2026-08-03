@@ -9,7 +9,8 @@ repository = "https://github.com/loft-br/xgboost-survival-embeddings"
 
 [tool.poetry.dependencies]
 python = ">=3.11,<3.13"
-xgboost = "^3.1.1"
+xgboost = { version = "^3.1.1", markers = "sys_platform == 'darwin'" }
+xgboost-cpu = { version = "^3.1.1", markers = "sys_platform != 'darwin'" }
 numpy = "^2.2.6"
 scikit-learn = "^1.8.0"
 pandas = "^2.3.0"
